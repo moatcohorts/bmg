@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `admin_id` int NOT NULL AUTO_INCREMENT,
   `admin_username` varchar(100) DEFAULT NULL,
-  `admin_pwd` varchar(100) DEFAULT NULL,
+  `admin_pwd` varchar(140) DEFAULT NULL,
   `admin_loggedin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `guest` (
   `guest_fname` varchar(100) DEFAULT NULL,
   `guest_lname` varchar(100) DEFAULT NULL,
   `guest_email` varchar(100) DEFAULT NULL,
+  `guest_dp` varchar(100) DEFAULT NULL,
   `guest_phone` varchar(100) DEFAULT NULL,
   `guest_gender` enum('female','male','others') DEFAULT NULL,
   `guest_pwd` varchar(200) DEFAULT NULL,
@@ -93,6 +94,7 @@ DROP TABLE IF EXISTS `payment`;
 CREATE TABLE IF NOT EXISTS `payment` (
   `payment_id` int NOT NULL AUTO_INCREMENT,
   `payment_amt` float DEFAULT NULL,
+  `payment_uniformsize` VARCHAR(50) DEFAULT NULL,
   `payment_guestid` int NOT NULL,
   `payment_status` enum('pending','paid','failed') DEFAULT 'pending',
   `payment_ref` varchar(100) NOT NULL,
